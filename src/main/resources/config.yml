@@ -1,0 +1,100 @@
+# Simple Server Transfer - Configuration
+# NOTE: Changes to this file require a full server restart to take effect.
+# /reload will NOT work — always do a full stop and start.
+
+# ─────────────────────────────────────────
+# PROXY MODE
+# Master switch for the entire plugin.
+# Set to false and the plugin does absolutely nothing.
+# All sections below only take effect when this is true.
+# ─────────────────────────────────────────
+proxy-mode: true
+
+# ─────────────────────────────────────────
+# TRANSFER TARGET
+# Where Java players will be sent when they join.
+# The destination server must have accepts-transfers: true in paper-global.yml.
+# Requires Minecraft 1.20.5 or later on both ends.
+# ─────────────────────────────────────────
+transfer-host: "play.example.com"
+transfer-port: 25565
+
+# How many ticks after joining before the transfer is sent.
+# 20 ticks = 1 second. Minimum recommended value is 20.
+transfer-delay-ticks: 40
+
+# ─────────────────────────────────────────
+# GEYSER / BEDROCK SUPPORT
+# Requires Geyser and Floodgate to be installed on this server.
+# When enabled, Bedrock players are detected via Floodgate and sent to a
+# separate host/port since Bedrock uses a different protocol and port.
+# Java players are never affected by this section.
+# Leave disabled if you do not have Geyser and Floodgate installed.
+# ─────────────────────────────────────────
+geyser-support: false
+
+bedrock-transfer-host: "play.example.com"
+bedrock-transfer-port: 19132
+
+# ─────────────────────────────────────────
+# MOTD SETTINGS
+# Controls what players see on the server list before joining.
+# ─────────────────────────────────────────
+motd:
+  # Replace the online player count with ? in the server list.
+  hide-online-count: false
+
+  # Replace the max player count with ? in the server list.
+  hide-max-count: false
+
+# ─────────────────────────────────────────
+# JOIN / LEAVE MESSAGES
+# Controls broadcast messages when players connect or disconnect.
+# ─────────────────────────────────────────
+messages:
+  # Hide the "X joined the game" message from other players.
+  hide-join-message: false
+
+  # Hide the "X left the game" message from other players.
+  hide-quit-message: false
+
+# ─────────────────────────────────────────
+# WORLD SETTINGS
+# Controls world behaviour while the server is acting as a transfer relay.
+# These work independently of server-limiter.
+# ─────────────────────────────────────────
+world:
+  # Stop the day/night cycle. Time is frozen at whatever it currently is.
+  lock-time: false
+
+  # Prevent weather from changing. Keeps the current weather state permanently.
+  lock-weather: false
+
+# ─────────────────────────────────────────
+# PLAYER RESTRICTIONS
+# Controls what players can do while waiting to be transferred.
+# These work independently of server-limiter.
+# ─────────────────────────────────────────
+player:
+  # Prevent players from sending chat messages.
+  block-chat: false
+
+  # Prevent players from running commands. Ops are not affected by this.
+  block-commands: false
+
+# ─────────────────────────────────────────
+# SERVER LIMITER
+# Strips the server down to the bare minimum needed to accept connections
+# and fire the join event so transfers can happen. Recommended when this
+# server exists solely as a transfer relay and nothing else.
+# What it does:
+#   - Disables world auto-save
+#   - Suppresses all mob spawning
+#   - Cancels all entity damage (players cannot die before being transferred)
+#   - Cancels hunger drain
+#   - Prevents block breaking and placing
+#   - Prevents block and entity interaction
+#   - Prevents players from dropping items
+#   - Stops new chunks from generating
+# ─────────────────────────────────────────
+server-limiter: false
