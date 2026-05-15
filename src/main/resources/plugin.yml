@@ -1,7 +1,7 @@
 name: SimpleServerTransfer
 version: '${project.version}'
 main: dev.professionalflare.sst.SimpleServerTransfer
-api-version: '26.1.2'
+api-version: '1.20'
 author: ProfessionalFlare
 description: Transfers players to another server using the vanilla Transfer packet.
 softdepend:

@@ -1,7 +1,6 @@
 package dev.professionalflare.sst.listeners;
 
 import dev.professionalflare.sst.SimpleServerTransfer;
-import com.destroystokyo.paper.event.server.PaperServerListPingEvent;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -16,16 +15,6 @@ public class MiscListener implements Listener {
 
     public MiscListener(SimpleServerTransfer plugin) {
         this.plugin = plugin;
-    }
-
-    @EventHandler(priority = EventPriority.HIGHEST)
-    public void onPing(PaperServerListPingEvent event) {
-        if (plugin.getConfig().getBoolean("motd.hide-online-count")) {
-            event.setNumPlayers(-1);
-        }
-        if (plugin.getConfig().getBoolean("motd.hide-max-count")) {
-            event.setMaxPlayers(-1);
-        }
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
