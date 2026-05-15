@@ -21,7 +21,7 @@ public class TransferListener implements Listener {
         FileConfiguration config = plugin.getConfig();
         int delay = config.getInt("transfer-delay-ticks", 40);
 
-        plugin.getServer().getScheduler().runTaskLater(plugin, () -> {
+        plugin.getServer().getRegionScheduler().runDelayed(plugin, player.getLocation(), scheduledTask -> {
             if (!player.isOnline()) return;
 
             if (config.getBoolean("geyser-support") && isBedrockPlayer(player)) {
