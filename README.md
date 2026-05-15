@@ -1,15 +1,14 @@
 # SimpleServerTransfer
 
-A Paper plugin that uses the vanilla Transfer packet (introduced in 1.20.5) to automatically redirect players to another server when they join. Designed to act as a lightweight transfer proxy layer without requiring BungeeCord or Velocity.
+A Paper/Spigot plugin that uses the vanilla Transfer packet (introduced in 1.20.5) to automatically redirect players to another server when they join. Designed to act as a lightweight transfer proxy layer without requiring BungeeCord or Velocity.
 
 ## Downloads
 
-Both a normal jar and a shaded jar are available on the [releases page](https://github.com/darkflareplays8/Simple-Server-Transfer/releases). Most users should use the normal jar.
+Releases are available on the [releases page](https://github.com/darkflareplays8/Simple-Server-Transfer/releases).
 
 ## Requirements
 
-- Paper 1.20.5 or later
-- Java 21
+- Java 21 (Java 25 for the 26.1.x Paper release)
 - The destination server must accept vanilla Transfer packets (1.20.5+, with `accepts-transfers: true` in paper-global.yml)
 
 ## Features
@@ -24,16 +23,16 @@ All options are in `config.yml`. The file is generated on first run and document
 
 The `proxy-mode` option is the master switch. When set to `false` the plugin does nothing.
 
-Geyser support requires both Geyser and Floodgate to be present on the server. The plugin detects Bedrock players via the Floodgate API at runtime using reflection, so the server will start fine without them as long as `geyser-support` is set to `false`.
-
 ## Compatibility
 
-| Software | Supported |
-|---|---|
-| Paper 1.20.5 - 1.21.x | Yes |
-| Paper 26.1.x | Separate release |
-| Geyser + Floodgate | Optional |
-| Spigot / CraftBukkit | No |
+| Software | Version Range | Supported |
+|---|---|---|
+| Paper | 1.20.6 - 1.21.x | Yes |
+| Paper | 26.1.x | Yes (separate release) |
+| Spigot | 1.20.6 - 1.21.x | Yes (separate release) |
+| Purpur | 1.20.6 - 1.21.x | Yes (uses Paper release) |
+| Geyser + Floodgate | Any | Optional |
+| BungeeCord / Velocity | Any | No |
 
 ## License
 
