@@ -1,7 +1,7 @@
 name: SimpleServerTransfer
 version: '${project.version}'
 main: dev.professionalflare.sst.SimpleServerTransfer
-api-version: '1.20'
+api-version: '26.1.2'
 author: ProfessionalFlare
 description: Transfers players to another server using the vanilla Transfer packet.
 folia-supported: true
